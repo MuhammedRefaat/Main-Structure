@@ -13,6 +13,7 @@
     <!-- for Dialogs -->
     <string name="ok">OK</string>
     <string name="cancel">cancel</string>
+    <string name="please_wait">Please Wait...</string>
 
     <!-- for the sliding tabs -->
     <string name="first_tab">Available Cards</string>

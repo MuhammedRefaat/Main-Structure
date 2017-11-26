@@ -7,6 +7,8 @@ import android.os.Environment;
  */
 public class AppPreferences {
 
+    // The URL for contacting server using rest client
+    public static final String URL = "";
     // the directory for saving no-media files
     public static final String eCards_NOMEDIA = "eCards-nomedia";
     // the complete path where we keep no-media files of the app
