@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "561039286930",
+    "project_id": "firebase-e-cards"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561039286930:android:f1e4ebfe6fb0c1a0",
+        "android_client_info": {
+          "package_name": "ae.netaq.ecards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561039286930-fo0j1ootmc9g70qj7pu4ou1rhrldclk9.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "561039286930-lhj14tv84t6e522rked3bm59gc9alka1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ae.netaq.ecards",
+            "certificate_hash": "0405c9910c9116c281ff670f8dd4502686d53a8f"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfEnnAwksVgdMC4hXmyLV7DjxkKprbecc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

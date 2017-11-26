@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "279834485800",
+    "firebase_url": "https://ecards-5bacd.firebaseio.com",
+    "project_id": "ecards-5bacd",
+    "storage_bucket": "ecards-5bacd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279834485800:android:f1e4ebfe6fb0c1a0",
+        "android_client_info": {
+          "package_name": "ae.netaq.ecards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279834485800-u9aqkk9cgn5uf1462hgplht9t8718i15.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ae.netaq.ecards",
+            "certificate_hash": "b73e3d1e4ce25ac8e837fa8e9647844b51ed686c"
+          }
+        },
+        {
+          "client_id": "279834485800-ifgfld36os903nk96405lsot2289h42f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClAv7K7QPy6bpNe1NnChufTH6-SCp-iWI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279834485800-ifgfld36os903nk96405lsot2289h42f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

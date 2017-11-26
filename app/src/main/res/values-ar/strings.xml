@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- for Dialogs -->
+    <string name="ok">موافق</string>
+    <string name="cancel">الغاء</string>
+
+    <!-- for the sliding tabs -->
+    <string name="first_tab">البطاقات المتاحة</string>
+    <string name="second_tab">بطاقاتي</string>
+
+</resources>

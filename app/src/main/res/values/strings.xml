@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ECards</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- for FaceBook login -->
+    <string name="facebook_app_id">128716447819546</string>
+    <string name="fb_login_protocol_scheme">fb128716447819546</string>
+
+    <!-- for Dialogs -->
+    <string name="ok">OK</string>
+    <string name="cancel">cancel</string>
+
+    <!-- for the sliding tabs -->
+    <string name="first_tab">Available Cards</string>
+    <string name="second_tab">My Cards</string>
+
+</resources>
