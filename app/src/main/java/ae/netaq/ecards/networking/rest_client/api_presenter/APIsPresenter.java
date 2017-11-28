@@ -12,15 +12,13 @@ import ae.netaq.ecards.networking.rest_client.api_interfaces.MainApiInterface;
 
 /**
  * Created by Muhammed Refaat on 2/7/2017.
- * <p>
+ *
  * This class is used to handle all the calls and responses to/from the server APIs
  */
 
 public class APIsPresenter {
 
     protected static Context context;
-
-
 
     protected static MainApiInterface adapter;
 

@@ -19,4 +19,10 @@
     <string name="first_tab">Available Cards</string>
     <string name="second_tab">My Cards</string>
 
+    <!-- for Navigation Drawer -->
+    <string name="available_cards">Available Cards</string>
+    <string name="my_cards">My Cards</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="logout">Logout</string>
+
 </resources>
