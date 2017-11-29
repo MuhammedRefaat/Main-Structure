@@ -15,4 +15,19 @@
     <string name="contact_us">اتصل بنا</string>
     <string name="logout">تسجيل الخروج</string>
 
+    <!-- for card view layout -->
+    <string name="edit_card">تعديل البطاقة</string>
+    <string name="customize_card">تعديل البطاقة</string>
+
+    <!-- for Share Button -->
+    <string name="share_informer">قم بنشر البطاقة</string>
+    <string name="share_text">هذه بطاقتي اللتي حصلت عليها من Mnawarah</string>
+
+    <!-- for contact us -->
+    <string name="submit">ارسال</string>
+    <string name="name">الاسم</string>
+    <string name="email">الايميل</string>
+    <string name="subject">الموضوع</string>
+    <string name="message">الرسالة</string>
+
 </resources>

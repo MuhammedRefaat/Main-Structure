@@ -13,5 +13,7 @@ public class AppPreferences {
     public static final String eCards_NOMEDIA = "eCards-nomedia";
     // the complete path where we keep no-media files of the app
     public static final String NO_MEDIA_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + eCards_NOMEDIA + "/";
-
+    // a preferences key
+    public static String cardDisplay = "CARD_DISPLAY";
+    public static String cardId = "CARD_ID";
 }

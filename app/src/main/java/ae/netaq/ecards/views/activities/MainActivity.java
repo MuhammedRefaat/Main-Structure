@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import ae.netaq.ecards.R;
 import ae.netaq.ecards.adapters.ViewPagerAdapter;
 import ae.netaq.ecards.misc.Utils;
+import ae.netaq.ecards.models.Navigator;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -35,12 +36,15 @@ public class MainActivity extends AppCompatActivity
     int numbOfTabs = 2;
     CharSequence Titles[] = new CharSequence[numbOfTabs];
 
+    Navigator navigator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        navigator = new Navigator(MainActivity.this);
 
         initSlidingTab();
 
@@ -63,13 +67,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.available_cards) {
-
+            navigator.goToAvailableCards();
         } else if (id == R.id.my_cards) {
-
+            navigator.goToMyCards();
         } else if (id == R.id.contact_us) {
-
+            navigator.goToContactUs();
         } else if (id == R.id.logout) {
-
+            navigator.logout();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

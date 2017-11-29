@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ECards</string>
+    <string name="app_name">Mnawarah</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -24,5 +24,18 @@
     <string name="my_cards">My Cards</string>
     <string name="contact_us">Contact Us</string>
     <string name="logout">Logout</string>
+
+    <!-- for card view layout -->
+    <string name="edit_card">Edit Card</string>
+    <string name="customize_card">Customize Card</string>
+
+    <!-- for Share Button -->
+    <string name="share_informer">Share Your Card !!</string>
+    <string name="share_text">check my last customized card from Mnawarah</string>
+    <string name="submit">Submit</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="subject">Subject</string>
+    <string name="message">Message</string>
 
 </resources>
