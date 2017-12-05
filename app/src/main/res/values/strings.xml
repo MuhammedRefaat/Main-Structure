@@ -15,6 +15,12 @@
     <string name="cancel">cancel</string>
     <string name="please_wait">Please Wait...</string>
 
+    <!-- Main Activity -->
+    <!-- When click physical back Button at the Main page -->
+    <string name="back_exit">Click BACK again to exit</string>
+    <!-- in case of empty screens -->
+    <string name="no_cards_to_show">No Cards Here</string>
+
     <!-- for the sliding tabs -->
     <string name="first_tab">Available Cards</string>
     <string name="second_tab">My Cards</string>

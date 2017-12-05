@@ -7,4 +7,8 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="star_dimen">15dp</dimen>
     <dimen name="star_margin">3dp</dimen>
+    <dimen name="card_height">100dp</dimen>
+    <dimen name="card_image_height">55dp</dimen>
+    <dimen name="card_details_height">30dp</dimen>
+    <dimen name="card_padding">5dp</dimen>
 </resources>

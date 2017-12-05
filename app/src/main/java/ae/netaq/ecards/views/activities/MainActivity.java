@@ -1,6 +1,7 @@
 package ae.netaq.ecards.views.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -8,8 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import ae.netaq.ecards.R;
 import ae.netaq.ecards.adapters.ViewPagerAdapter;
@@ -28,15 +32,18 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.nav_view)
     NavigationView navigationView;
     @BindView(R.id.tabs)
-    TabLayout tabs;
+    public TabLayout tabs;
     @BindView(R.id.pager)
-    ViewPager pager;
+    public ViewPager pager;
 
     ViewPagerAdapter adapter;
     int numbOfTabs = 2;
     CharSequence Titles[] = new CharSequence[numbOfTabs];
 
+    private RecyclerView cardsRecyclerView;
+
     Navigator navigator;
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +60,27 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (drawer.isDrawerOpen(GravityCompat.START | GravityCompat.END)) {
+            drawer.closeDrawers();
+            return;
         } else {
-            super.onBackPressed();
+            getSupportFragmentManager().popBackStack();
+            if (doubleBackToExitPressedOnce && tabs.getVisibility() == View.VISIBLE) {
+                super.onBackPressed();
+                return;
+            } else if (tabs.getVisibility() == View.GONE) {
+                tabs.setVisibility(View.VISIBLE);
+            } else {
+                this.doubleBackToExitPressedOnce = true;
+                Toast.makeText(this, getResources().getString(R.string.back_exit), Toast.LENGTH_SHORT).show();
+            }
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
         }
     }
 
@@ -76,7 +100,7 @@ public class MainActivity extends AppCompatActivity
             navigator.logout();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -92,9 +116,6 @@ public class MainActivity extends AppCompatActivity
 
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, numbOfTabs);
-
-        // Assigning ViewPager View and setting the adapter
-        pager = (ViewPager) findViewById(R.id.pager);
 
         Utils.setViewAccordingToLocale(this, pager);
 
@@ -123,7 +144,6 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         navigationView.setNavigationItemSelectedListener(this);
     }
 }

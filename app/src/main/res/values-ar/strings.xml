@@ -5,6 +5,12 @@
     <string name="cancel">الغاء</string>
     <string name="please_wait">فضلا انتظر</string>
 
+    <!-- Main Activity -->
+    <!-- When click physical back Button at the Main page -->
+    <string name="back_exit">اضغط مرة آخرى للخروج</string>
+    <!-- in case of empty screens -->
+    <string name="no_cards_to_show">لا يوجد بطاقات للعرض</string>
+
     <!-- for the sliding tabs -->
     <string name="first_tab">البطاقات المتاحة</string>
     <string name="second_tab">بطاقاتي</string>

@@ -1,0 +1,6 @@
+<resources>
+	<dimen name="card_height">230dp</dimen>
+	<dimen name="card_image_height">126.5dp</dimen>
+	<dimen name="card_details_height">69dp</dimen>
+	<dimen name="card_padding">11.5dp</dimen>
+</resources>

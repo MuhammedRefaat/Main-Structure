@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/card_padding">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cards_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/card_padding"
+        android:scrollbars="none" />
+
+    <include
+        android:id="@+id/no_data"
+        layout="@layout/no_data" />
 
 </RelativeLayout>

@@ -3,11 +3,11 @@ package ae.netaq.ecards.models;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import ae.netaq.ecards.R;
+import ae.netaq.ecards.views.activities.MainActivity;
 import ae.netaq.ecards.views.fragments.AvailableCardsFragment;
 import ae.netaq.ecards.views.fragments.CardView;
 import ae.netaq.ecards.views.fragments.ContactUS;
@@ -22,17 +22,19 @@ import ae.netaq.ecards.views.fragments.MyCardsFragment;
 
 public class Navigator {
 
-    private AppCompatActivity activity;
+    private MainActivity activity;
     private Fragment fragment;
 
     public Navigator(Context activity) {
-        this.activity = (AppCompatActivity) activity;
+        this.activity = (MainActivity) activity;
     }
 
     /**
      * Available Cards page
      */
     public void goToAvailableCards() {
+        activity.tabs.setVisibility(View.VISIBLE);
+        activity.pager.setCurrentItem(0);
         fragment = new AvailableCardsFragment();
         launchFragment();
     }
@@ -41,6 +43,8 @@ public class Navigator {
      * My Cards page
      */
     public void goToMyCards() {
+        activity.tabs.setVisibility(View.VISIBLE);
+        activity.pager.setCurrentItem(1);
         fragment = new MyCardsFragment();
         launchFragment();
     }
@@ -51,6 +55,7 @@ public class Navigator {
      * @param bundle the Bundle that contains the required data to be send along with the fragment
      */
     public void goToCardView(Bundle bundle) {
+        activity.tabs.setVisibility(View.GONE);
         fragment = new CardView();
         fragment.setArguments(bundle);
         launchFragment();
@@ -62,6 +67,7 @@ public class Navigator {
      * @param bundle the Bundle that contains the required data to be send along with the fragment
      */
     public void goToCustomizationPage(Bundle bundle) {
+        activity.tabs.setVisibility(View.GONE);
         fragment = new CardView();
         fragment.setArguments(bundle);
         launchFragment();
@@ -73,6 +79,7 @@ public class Navigator {
      * @param bundle the Bundle that contains the required data to be send along with the fragment
      */
     public void goToCustomizedCard(Bundle bundle) {
+        activity.tabs.setVisibility(View.GONE);
         fragment = new CustomizedCard();
         fragment.setArguments(bundle);
         launchFragment();
@@ -82,6 +89,7 @@ public class Navigator {
      * The Contact Us page
      */
     public void goToContactUs() {
+        activity.tabs.setVisibility(View.GONE);
         fragment = new ContactUS();
         launchFragment();
     }
