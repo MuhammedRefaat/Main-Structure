@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
 
         tabs.setTabTextColors(Utils.getColor(this, android.R.color.white), Utils.getColor(this, android.R.color.holo_orange_light));
         tabs.setTabMode(TabLayout.MODE_FIXED);
-        // Setting the ViewPager For the SlidingTabsLayout
+        // Setting the ViewPager to work with the SlidingTabsLayout
         tabs.setupWithViewPager(pager);
 
     }

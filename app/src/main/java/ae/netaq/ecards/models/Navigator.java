@@ -36,7 +36,7 @@ public class Navigator {
         activity.tabs.setVisibility(View.VISIBLE);
         activity.pager.setCurrentItem(0);
         fragment = new AvailableCardsFragment();
-        launchFragment();
+        launchFragment(0);
     }
 
     /**
@@ -46,7 +46,7 @@ public class Navigator {
         activity.tabs.setVisibility(View.VISIBLE);
         activity.pager.setCurrentItem(1);
         fragment = new MyCardsFragment();
-        launchFragment();
+        launchFragment(1);
     }
 
     /**
@@ -58,7 +58,7 @@ public class Navigator {
         activity.tabs.setVisibility(View.GONE);
         fragment = new CardView();
         fragment.setArguments(bundle);
-        launchFragment();
+        launchFragment(-1);
     }
 
     /**
@@ -70,7 +70,7 @@ public class Navigator {
         activity.tabs.setVisibility(View.GONE);
         fragment = new CardView();
         fragment.setArguments(bundle);
-        launchFragment();
+        launchFragment(-1);
     }
 
     /**
@@ -82,7 +82,7 @@ public class Navigator {
         activity.tabs.setVisibility(View.GONE);
         fragment = new CustomizedCard();
         fragment.setArguments(bundle);
-        launchFragment();
+        launchFragment(-1);
     }
 
     /**
@@ -91,7 +91,7 @@ public class Navigator {
     public void goToContactUs() {
         activity.tabs.setVisibility(View.GONE);
         fragment = new ContactUS();
-        launchFragment();
+        launchFragment(-1);
     }
 
     /**
@@ -104,7 +104,7 @@ public class Navigator {
     /**
      * The method which is responsible for the Hard Word for launching the fragment
      */
-    private void launchFragment() {
+    private void launchFragment(int pagerIndex) {
         // get the corresponding holder layout
         activity.getSupportFragmentManager().popBackStack();
         FrameLayout frameLayout = (FrameLayout) activity.findViewById(R.id.content);
@@ -118,12 +118,15 @@ public class Navigator {
             toExit = R.anim.exit_to_left;
         }
 
-        // do the fragment replacement
-        activity.getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(toEnter, toExit)
-                .replace(R.id.content, fragment)
-                .addToBackStack(null)
-                .commit();
+        if (pagerIndex != -1)
+            activity.pager.setCurrentItem(pagerIndex, true);
+        else
+            // do the fragment replacement
+            activity.getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(toEnter, toExit)
+                    .replace(R.id.content, fragment)
+                    .addToBackStack(null)
+                    .commit();
     }
 
 }
