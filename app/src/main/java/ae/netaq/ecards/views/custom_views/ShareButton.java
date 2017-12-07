@@ -1,11 +1,16 @@
 package ae.netaq.ecards.views.custom_views;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -20,8 +25,10 @@ public class ShareButton extends android.support.v7.widget.AppCompatImageButton 
     /* the holding instance of the image to be shared */
     ImageView toShare;
 
-    public ShareButton(Context context) {
-        super(context);
+    public ShareButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        checkPermission(context);
+        this.setOnClickListener(this);
     }
 
     @Override
@@ -39,9 +46,23 @@ public class ShareButton extends android.support.v7.widget.AppCompatImageButton 
 
     /**
      * To set the instance of the image to be shared
+     *
      * @param toShare the instance of the ImageView to be shared
      */
     public void setToShare(ImageView toShare) {
         this.toShare = toShare;
     }
+
+    /**
+     * To check the permission for "Write External Storage" to be able to retrieve images
+     */
+    public static void checkPermission(Context context) {
+        // check for the External Storage allowance
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions((Activity) context,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    100);
+        }
+    }
+
 }
