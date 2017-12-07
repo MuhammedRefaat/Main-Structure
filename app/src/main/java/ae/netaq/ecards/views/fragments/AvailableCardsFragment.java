@@ -16,6 +16,8 @@ import ae.netaq.ecards.R;
 import ae.netaq.ecards.adapters.CardsListingAdapter;
 import ae.netaq.ecards.controllers.CardsAdapterController;
 import ae.netaq.ecards.database.dataModel.Cards;
+import ae.netaq.ecards.misc.AppPreferences;
+import ae.netaq.ecards.views.activities.MainActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,7 +25,7 @@ import butterknife.ButterKnife;
  * Created by M.Refaat on 11/23/2017.
  */
 
-public class AvailableCardsFragment extends Fragment {
+public class AvailableCardsFragment extends Fragment implements CardsListingAdapter.CardClickListener {
 
     @BindView(R.id.no_data)
     RelativeLayout noData;
@@ -60,7 +62,15 @@ public class AvailableCardsFragment extends Fragment {
 
         // finally, display the cards
         cardsListingAdapter = CardsAdapterController.
-                settingTheCardsAdapter(getActivity(), cardsRecyclerView, cards);
+                settingTheCardsAdapter(getActivity(), this, cardsRecyclerView, cards);
+    }
+
+    @Override
+    public void cardClick(int position, View view) {
+        Bundle bundle = new Bundle();
+        bundle.putString(AppPreferences.cardId, cards.get(position).getCardId());
+        bundle.putBoolean(AppPreferences.cardDisplay, true);
+        ((MainActivity) getActivity()).navigator.goToCardView(bundle);
     }
 
 }
