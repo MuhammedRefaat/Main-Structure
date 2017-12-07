@@ -19,8 +19,9 @@ public class CardsAdapterController {
     /**
      * To set the whole operation of the cards list adapter
      */
-    public static CardsListingAdapter settingTheCardsAdapter(Context context, RecyclerView cardsRecyclerView, List<Cards> cards) {
+    public static CardsListingAdapter settingTheCardsAdapter(Context context, CardsListingAdapter.CardClickListener fragmentContext, RecyclerView cardsRecyclerView, List<Cards> cards) {
         CardsListingAdapter cardsListingAdapter = new CardsListingAdapter(cards);
+        cardsListingAdapter.setListener(fragmentContext);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(context, 2);
         cardsRecyclerView.setLayoutManager(layoutManager);
         cardsRecyclerView.setAdapter(cardsListingAdapter);
@@ -37,11 +38,13 @@ public class CardsAdapterController {
         List<Cards> cards = new ArrayList<>();
         // filling Dummy cards
         Cards card = new Cards();
-        int idx = 0;
-        if(!gettingAllAvailableCards)
-            idx = 5;
-        for (int i = idx; i < 11; i++)
+        int idx = 11;
+        if (!gettingAllAvailableCards)
+            idx = 6;
+        for (int i = 0; i < idx; i++) { // TODO
+            card.setCardId(Integer.toString(i));
             cards.add(card);
+        }
         return cards;
     }
 
