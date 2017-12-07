@@ -24,6 +24,7 @@ import butterknife.ButterKnife;
 public class CardsListingAdapter extends RecyclerView.Adapter<CardsListingAdapter.CardsViewHolder> {
 
     private List<Cards> cards;
+    CardClickListener cardClickListener;
 
     /**
      * instructor which is used to set the cards
@@ -46,9 +47,23 @@ public class CardsListingAdapter extends RecyclerView.Adapter<CardsListingAdapte
         public CardsViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            //setting the click listener for the card
+            itemView.setOnClickListener(onCardClick);
+            
             //TODO now set the views values
             title.setText("CARD NUM: " + new SecureRandom().nextInt(9));
         }
+
+        /**
+         * The onClick Listener for the card
+         */
+        private View.OnClickListener onCardClick = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cardClickListener.cardClick(getAdapterPosition(), view);
+            }
+        };
     }
 
     @Override
@@ -69,4 +84,29 @@ public class CardsListingAdapter extends RecyclerView.Adapter<CardsListingAdapte
     public int getItemCount() {
         return cards.size();
     }
+
+    /**
+     * The interface that handles the routing of the click action to the corresponding initiator(fragment)
+     */
+    public interface CardClickListener {
+
+        /**
+         * The onClick listener of the card itself
+         *
+         * @param position the current position of the RecyclerView to get the corresponding card data
+         * @param view     the corresponding view that got the click action
+         */
+        void cardClick(int position, View view);
+
+    }
+
+    /**
+     * to set the interface for the corresponding fragment
+     *
+     * @param cardClickListener the interface instance from the corresponding fragment
+     */
+    public void setListener(CardClickListener cardClickListener) {
+        this.cardClickListener = cardClickListener;
+    }
+
 }
